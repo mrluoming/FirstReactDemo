@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './styles/index.css';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import Clock from './Clock'
-import MyComponent from './Test.jsx'
-import Calculator from './Calculator'
+import Clock from './components/Clock'
+import MyComponent from './components/Test.jsx'
+import Calculator from './components/Calculator'
 ReactDOM.render(<App />, document.getElementById('root'));
 
 registerServiceWorker();
