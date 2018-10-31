@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import '../styles/App.css';
 import UserList from './UserList';
 import UserForm from '../components/UserForm';
+import {Button} from 'antd'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -83,8 +84,9 @@ class App extends Component {
         <UserList userlist={this.state.userlist} 
           onUpdateUser={this.onUpdateUser} 
           onDelUser={this.onDelUser} 
-        />
-        <button onClick={this.onToggleForm}>Add</button>
+      />
+        <Button type="primary" onClick={this.onToggleForm}  size="large"  htmlType="submit"
+                  className="Add-user-button">Add</Button>
         <UserForm
           onAddUser={this.onAddUser}
           formDisplay={this.state.formDisplay}

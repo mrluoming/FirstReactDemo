@@ -1,3 +1,4 @@
+@import "~antd/dist/antd.css";
 .App {
   text-align: center;
 }
@@ -20,6 +21,11 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Add-user-button {
+  width: 68px;
+  height: 30px;
 }
 
 @keyframes App-logo-spin {

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, Input } from 'antd';
+import "../styles/UserItem.css"
 class UserItem extends React.Component {
     constructor(props) {
       super(props);
@@ -60,14 +62,16 @@ class UserItem extends React.Component {
     render() {
       return (
  
-        <div ref="UserItem" name="UserItem">
+        <div ref="UserItem" name="UserItem" className="user-item">
 	        <h5>
-                   姓名 <input type='text' name='name' defaultValue = {this.props.name} onChange={this.onChangeNameData}/>
-                   年龄 <input type='text' name='age' defaultValue = {this.props.age} onChange={this.onChangeAageData}/>
-                   性别 <input type='text' name='sex' defaultValue = {this.props.sex} onChange={this.onChangeSexData}/>
-                   身高 <input type='text' name='height' defaultValue = {this.props.height} onChange={this.onChangeHeightData}/>
-                   <button onClick={this.updateData}>更新</button>
-                   <button onClick={this.delData}>删除</button>
+                   姓名 <Input className="user-input" type='text' name='name' defaultValue = {this.props.name} onChange={this.onChangeNameData}/>
+                   年龄 <Input className="user-input" type='text' name='age' defaultValue = {this.props.age} onChange={this.onChangeAageData}/>
+                   性别 <Input className="user-input" type='text' name='sex' defaultValue = {this.props.sex} onChange={this.onChangeSexData}/>
+                   身高 <Input className="user-input" type='text' name='height' defaultValue = {this.props.height} onChange={this.onChangeHeightData}/>
+                   &nbsp;
+                   <Button type="primary" size="small" onClick={this.updateData}>更新</Button>
+                   &nbsp;
+                   <Button type="primary" size="small" onClick={this.delData}>删除</Button>
             </h5>
 	    </div>
 

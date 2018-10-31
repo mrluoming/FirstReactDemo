@@ -1,4 +1,7 @@
 import React from 'react';
+import { Button, Input, Form } from 'antd';
+import "../styles/UserItem.css"
+const FormItem = Form.Item
 class UserItem extends React.Component {
     constructor(props) {
       super(props);
@@ -18,6 +21,23 @@ class UserItem extends React.Component {
    
     submitHandle = (e) =>{
       e.preventDefault();//取消默认事件，否则页面会被刷新重置
+      this.props.form.validateFields((error, values) => {
+        if (!error) {
+          console.log('ok', values);
+          var newUser = values;
+          this.props.form.resetFields({});
+          this.props.onAddUser(newUser);
+
+        } else {
+          console.log('error', error, values);
+        }
+      });
+      return;
+
+      //old code
+      console.log('this.props:',this.props)
+      console.log('this.refs:',this.refs)
+      console.log('this.refs.addUserForm:',this.refs.addUserForm)
       if (this.refs.addUserForm.name.value && this.refs.addUserForm.name.value.trim() === ''
         || !this.refs.addUserForm.name.value) {
         return
@@ -40,20 +60,56 @@ class UserItem extends React.Component {
       var styleObj = {
         display : this.props.formDisplay ? 'block':'none'
       };
+      const { loading, form } = this.props;
+      const { getFieldDecorator } = form;
       return (
-        <form ref="addUserForm" name="addUser" style={styleObj} onSubmit={this.submitHandle}>
-              <div className="form-group">
+        <Form ref="addUserForm" name="addUser" style={styleObj} >
+              <div>
+              <br/>
                 <label htmlFor="qtitle">添加用户</label>
-                <br/>姓名 <input type='text' name='name'/>
-                <br/>年龄 <input type='text' name='age' />
-                <br/>性别 <input type='text' name='sex'/>
-                <br/>身高 <input type='text' name='height' />
+                <FormItem>
+                {getFieldDecorator('name', {
+                  //initialValue: 'test',
+                  rules: [{ required: true, message: '请输入您的用户名，示例test' }]
+                })(
+                  <Input className="user-input" type='text'/>
+                )}
+                </FormItem>
+
+                <FormItem>
+                {getFieldDecorator('age', {
+                  initialValue: '18',
+                  rules: [{ required: true, message: '请输入年龄' }]
+                })(
+                  <Input className="user-input" type='text'/>
+                )}
+                </FormItem>
+
+                <FormItem>
+                {getFieldDecorator('sex', {
+                  initialValue: '男',
+                  rules: [{ required: true, message: '请输入性别' }]
+                })(
+                  <Input className="user-input" type='text'/>
+                )}
+                </FormItem>
+
+                <FormItem>
+                {getFieldDecorator('height', {
+                  initialValue: '170',
+                  rules: [{ required: true, message: '请输入身高' }]
+                })(
+                  <Input className="user-input" type='text'/>
+                )}
+                </FormItem>
+
+                
               </div>
               
-              <button >确认</button>
-              <button type="button"  onClick={this.props.onToggleForm}>取消</button>
-            </form>
+              <Button onClick={this.submitHandle}>确认</Button>
+              <Button  onClick={this.props.onToggleForm}>取消</Button>
+        </Form>
       );
     }
   }
-export default UserItem;
+export default Form.create()(UserItem);
