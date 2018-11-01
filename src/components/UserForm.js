@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Input, Form } from 'antd';
-import "../styles/UserItem.css"
+import "../styles/UserItem.less"
 const FormItem = Form.Item
 class UserItem extends React.Component {
     constructor(props) {
@@ -63,7 +63,7 @@ class UserItem extends React.Component {
       const { loading, form } = this.props;
       const { getFieldDecorator } = form;
       return (
-        <Form ref="addUserForm" name="addUser" style={styleObj} >
+        <Form ref="addUserForm" name="addUser" style={styleObj} className="user-item">
               <div>
               <br/>
                 <label htmlFor="qtitle">添加用户</label>

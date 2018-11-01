@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Input } from 'antd';
-import "../styles/UserItem.css"
+import "../styles/UserItem.less"
 class UserItem extends React.Component {
     constructor(props) {
       super(props);

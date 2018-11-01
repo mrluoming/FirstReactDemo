@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import '../styles/App.css';
+import '../styles/App.less';
 import UserList from './UserList';
 import UserForm from '../components/UserForm';
 import {Button} from 'antd'
