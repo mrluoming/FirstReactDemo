@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../styles/App.less';
 import UserList from './UserList';
 import UserForm from '../components/UserForm';
+
 import {Button} from 'antd'
-class App extends Component {
+
+class UserListContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -30,10 +31,46 @@ class App extends Component {
           sex: '男',
           age: '20',
           height: '175'
+        },
+        {
+          id: 4,
+          name: 'test3',
+          sex: '男',
+          age: '20',
+          height: '175'
+        },
+        {
+          id: 5,
+          name: 'test3',
+          sex: '男',
+          age: '20',
+          height: '175'
+        },
+        {
+          id: 6,
+          name: 'test3',
+          sex: '男',
+          age: '20',
+          height: '175'
+        },
+        {
+          id: 7,
+          name: 'test3',
+          sex: '男',
+          age: '20',
+          height: '175'
+        },
+        {
+          id: 8,
+          name: 'test3',
+          sex: '男',
+          age: '20',
+          height: '175'
         }
       ],
       formDisplay: false,
-      maxID:3,
+      maxID:8,
+
     };
     console.log('constructor,this.state.userlist:',this.state.userlist)
 
@@ -81,20 +118,23 @@ class App extends Component {
     console.log('render,this.state.userlist:',this.state.userlist)
     return (
       <div className="App">
-        <UserList userlist={this.state.userlist} 
-          onUpdateUser={this.onUpdateUser} 
-          onDelUser={this.onDelUser} 
-      />
-        <Button type="primary" onClick={this.onToggleForm}  size="large"  htmlType="submit"
-                  className="Add-user-button">Add</Button>
-        <UserForm
-          onAddUser={this.onAddUser}
-          formDisplay={this.state.formDisplay}
-          onToggleForm={this.onToggleForm} />
-      </div>
+            <br />
+            <UserList userlist={this.state.userlist}
+              onUpdateUser={this.onUpdateUser}
+              onDelUser={this.onDelUser}
+            />
+            <Button type="primary" onClick={this.onToggleForm} size="large" htmlType="submit"
+              className="Add-user-button">Add</Button>
+             <br />
+            <UserForm
+              onAddUser={this.onAddUser}
+              formDisplay={this.state.formDisplay}
+              onToggleForm={this.onToggleForm} />
 
+          <br />        
+      </div>
     );
   }
 }
 
-export default App;
+export default UserListContainer;

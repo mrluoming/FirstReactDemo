@@ -32,27 +32,6 @@ class UserItem extends React.Component {
           console.log('error', error, values);
         }
       });
-      return;
-
-      //old code
-      console.log('this.props:',this.props)
-      console.log('this.refs:',this.refs)
-      console.log('this.refs.addUserForm:',this.refs.addUserForm)
-      if (this.refs.addUserForm.name.value && this.refs.addUserForm.name.value.trim() === ''
-        || !this.refs.addUserForm.name.value) {
-        return
-      }
-      else {
-        var newUser = {
-          name: this.refs.addUserForm.name.value,
-          age: this.refs.addUserForm.age.value,
-          sex: this.refs.addUserForm.sex.value,
-          height: this.refs.addUserForm.height.value,
-        };
-
-        this.refs.addUserForm.reset();
-        this.props.onAddUser(newUser);
-      }
       
     }
 
@@ -60,7 +39,7 @@ class UserItem extends React.Component {
       var styleObj = {
         display : this.props.formDisplay ? 'block':'none'
       };
-      const { loading, form } = this.props;
+      const { form } = this.props;
       const { getFieldDecorator } = form;
       return (
         <Form ref="addUserForm" name="addUser" style={styleObj} className="user-item">

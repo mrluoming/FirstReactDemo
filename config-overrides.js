@@ -7,14 +7,14 @@ module.exports = function override(config, env) {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       components: path.resolve(__dirname, 'src/components'),
-      //assets: path.resolve(__dirname, 'src/assets')
+      assets: path.resolve(__dirname, 'src/assets')
     }
   };
 
   if (env === 'development') {
     config = injectBabelPlugin(['dva-hmr'], config);
   } else {
-    config.output.publicPath = '/dva-boot-admin/'; // 跟据实际项目设置
+    config.output.publicPath = '/test-demo/'; // 跟据实际项目设置
   }
 
   config = injectBabelPlugin('transform-decorators-legacy', config);
